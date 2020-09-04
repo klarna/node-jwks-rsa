@@ -1,4 +1,5 @@
 import debug from 'debug';
+import jose from 'jose';
 import request from './wrappers/request';
 import JwksError from './errors/JwksError';
 import SigningKeyNotFoundError from './errors/SigningKeyNotFoundError';
@@ -65,7 +66,7 @@ export class JwksClient {
         return cb(new JwksError('The JWKS endpoint did not contain any keys'));
       }
 
-      const signingKeys = keys
+      const signingRSAKeys = keys
         .filter((key) => {
           if(key.kty !== 'RSA') {
             return false;
@@ -90,6 +91,25 @@ export class JwksClient {
           }
           return jwk;
         });
+      
+      const signingECKeys = keys
+        .filter((key) => {
+          if(key.kty === 'EC') {
+            return true;
+          }
+        })
+        .map((jsonKey) => {
+          const jwk = {
+            kid: jsonKey.kid,
+            nbf: jsonKey.nbf
+          };
+
+          jwk.publicKey = jose.JWK.asKey(jsonKey).toPEM();
+          jwk.getPublicKey = () => jwk.publicKey;
+          return jwk;
+        });
+
+      const signingKeys = signingRSAKeys.concat(signingECKeys)
 
       if (!signingKeys.length) {
         return cb(new JwksError('The JWKS endpoint did not contain any signing keys'));

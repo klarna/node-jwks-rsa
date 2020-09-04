@@ -1,6 +1,6 @@
 {
   "name": "jwks-rsa",
-  "version": "1.9.0",
+  "version": "2.0.0-beta",
   "description": "Library to retrieve RSA public keys from a JWKS endpoint",
   "main": "lib/index.js",
   "types": "index.d.ts",
@@ -8,6 +8,7 @@
     "@types/express-jwt": "0.0.42",
     "axios": "^0.19.2",
     "debug": "^4.1.0",
+    "jose": "^1.28.0",
     "jsonwebtoken": "^8.5.1",
     "limiter": "^1.1.5",
     "lru-memoizer": "^2.1.2",
