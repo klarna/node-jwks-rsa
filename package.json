@@ -41,6 +41,7 @@
     "typescript": "^3.9.5"
   },
   "scripts": {
+    "postinstall": "npm run compile",
     "clean": "rimraf lib/",
     "clean:ts": "rimraf ts-output/",
     "compile": "babel -d lib/ src/",
