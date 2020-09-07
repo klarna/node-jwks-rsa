@@ -109,7 +109,7 @@ export class JwksClient {
           return jwk;
         });
 
-      const signingKeys = signingRSAKeys.concat(signingECKeys)
+      const signingKeys = signingRSAKeys.concat(signingECKeys);
 
       if (!signingKeys.length) {
         return cb(new JwksError('The JWKS endpoint did not contain any signing keys'));
