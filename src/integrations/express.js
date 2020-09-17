@@ -22,8 +22,8 @@ module.exports.expressJwtSecret = (options) => {
   const onError = options.handleSigningKeyError || handleSigningKeyError;
 
   return function secretProvider(req, header, payload, cb) {
-    // Only RS256 is supported.
-    if (!header || header.alg !== 'RS256') {
+    // PS is not supported.
+    if (!header || ![ 'RS256', 'ES256' ].includes(header.alg)) {
       return cb(null, null);
     }
 
