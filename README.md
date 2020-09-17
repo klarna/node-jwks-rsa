@@ -8,6 +8,8 @@
 
 A library to retrieve RSA signing keys from a JWKS (JSON Web Key Set) endpoint.
 
+*NOTE: THIS IS A TEMPORAL FORK WITH A SUPPORT FOR EC ALONG WITH RSA*
+
 > npm install --save jwks-rsa
 
 ## Usage
