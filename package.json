@@ -1,7 +1,7 @@
 {
-  "name": "jwks-rsa",
+  "name": "@klarna/jwks-rsa",
   "version": "2.0.0-beta",
-  "description": "Library to retrieve RSA public keys from a JWKS endpoint",
+  "description": "Library to retrieve RSA and EC public keys from a JWKS endpoint",
   "main": "lib/index.js",
   "types": "index.d.ts",
   "dependencies": {
@@ -55,7 +55,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/auth0/node-jwks-rsa.git"
+    "url": "git+https://github.com/klarna/node-jwks-rsa.git"
   },
   "keywords": [
     "jwks",
@@ -65,7 +65,7 @@
   "author": "Auth0",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/auth0/node-jwks-rsa/issues"
+    "url": "https://github.com/klarna/node-jwks-rsa/issues"
   },
-  "homepage": "https://github.com/auth0/node-jwks-rsa#readme"
+  "homepage": "https://github.com/klarna/node-jwks-rsa#readme"
 }
